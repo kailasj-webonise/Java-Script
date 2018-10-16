@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>
+
+var link1,link2,link3,link4,link5,l1,l2,l3,l4,l5;
+function find()
+{
+  link1 = window.open("https://www.google.com/");
+  link2 = window.open("https://www.facebook.com/");
+  link3 = window.open("https://wwww.w3school.com/");
+  link4 = window.open("https://www.flipkart.com/");
+  link5 = window.open("https://wwww.draw.io.com/");
+ 
+ 	l1=setTimeout(
+       function(){ link1.window.close();}, 10000
+       );
+   
+       l2= setTimeout(
+       function(){ link2.window.close();}, 8000
+       );
+   
+       l3= setTimeout(
+       function(){ link3.window.close();}, 6000
+       );
+
+      l4= setTimeout(
+       function(){ link4.window.close();}, 8000
+       );
+
+       l5=setTimeout(
+       function(){ link5.window.close();}, 6000
+       );
+   
+   }
+ 
+ function Stop()
+ {
+     //window.stop();
+    clearTimeout(l1);
+    clearTimeout(l2);
+    clearTimeout(l3);
+    clearTimeout(l4);
+    clearTimeout(l5);
+  
+ }
+
+
+
+
+</script>
+
+  </head>
+
+  <body>
+
+   <button type="button" onclick="find()">Open multiple tab and close one by one..</button>
+  
+   <button type="button" onclick="Stop()"> STOP</button>
+
+   </body>
+
+</html>
