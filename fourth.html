@@ -1,48 +1,56 @@
 <!DOCTYPE HTML>
- <html>
-   <head>
+<html>
+  <head>
     <script>
-       var detailArray=[];
-       function check() {
-            var timestamp = new Date().getTime();
-           var name=document.getElementById('username');
-           var email = document.getElementById('useremail');
-            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      var detailArray=[];
 
-            if (!filter.test(email.value)) {
-              alert('Please enter a proper email address');
-              email.focus;
-              return false;
-            }
-            else {
-             detailArray.push(name.value,email.value,timestamp);
-             localStorage.setItem("Details",JSON.stringify(detailArray));
-             alert("user is Added");
-            }
+      function check() {
+        var timestamp = new Date().getTime();
+        var name=document.getElementById('username');
+        var email = document.getElementById('useremail');
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email.value)) {
+          alert('Please enter a proper email address');
+          email.focus;
+          return false;
         }
+        else {
+          detailArray.push(name.value,email.value,timestamp);
+          localStorage.setItem("Details",JSON.stringify(detailArray));
+          alert("user is Added");
+        }
+      }
+
       function Show() {
-          document.write("<table border=1 border-collapse=collapse>");
-           document.write("<tr>");
-          document.write("<th>Name</th>");
-          document.write("<th>Email</th>");
-          document.write("<th>Current TimeStamp</th>");
-           document.write("</tr>");
-           var userDetails=localStorage.getItem("Details").split(',');
-           for(let i=0;i<userDetails.length;i++) {
-              document.write("<tr>");
-              document.write("<td>"+userDetails[i]+"</td>");
-              document.write("<td>"+userDetails[++i]+"</td>");
-              document.write("<td>"+userDetails[++i]+"</td>");
-              document.write("</tr>");
-            }
-              document.write("</table>");
+        var boiler = "<table border=1 border-collapse=collapse>" +
+          "<tr>" +
+          "<th>Name</th>" +
+          "<th>Email</th>" +
+          "<th>Current TimeStamp</th>" +
+          "</tr>";
+
+        document.write(boiler);
+
+        var userDetails=localStorage.getItem("Details").split(',');
+
+        for(let i=0;i<userDetails.length;i++) {
+          var boiler1 ="<tr>" +
+          "<td>"+userDetails[i]+"</td>" +
+          "<td>"+userDetails[++i]+"</td>" +
+          "<td>"+userDetails[++i]+"</td>" +
+          "</tr>";
+
+          document.write("boiler1");
         }
+        document.write("</table>");
+      }
     </script>
-   </head>
-   <body>
-        Enter the Username: <input type="text" id="username" /><br /><br>
-        Enter the Email-id: <input type="text" id="useremail" /><br /><br>
-        <input type="button" onclick="check()" value="Submit"/><br /><br>
-        <input type="button" onclick="Show()" value="show"/><br />
-   </body>
-  </html>
+  </head>
+  <body>
+    Enter the Username: <input type="text" id="username" /><br /><br>
+    Enter the Email-id: <input type="text" id="useremail" /><br /><br>
+    <input type="button" onclick="check()" value="Submit"/><br /><br>
+    <input type="button" onclick="Show()" value="show"/><br />
+  </body>
+</html>
