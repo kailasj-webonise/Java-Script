@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function show() {
+        list= new Array();
+        numbers=document.getElementById("txt").value;
+        list = numbers.split(',');
+        document.write(list);
+        console.log(list);
+        var count=0;
+        for(let i=0;i<list.length;i++) {
+            for(let j=0;j<list.length;j++) {
+             if(list[j]==i) {
+                count++;
+              }
+            }
+             if(count>0) {
+               document.write("<br>"+i+":"+count);
+               console.log(i+" "+count);
+              }
+              count=0;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type='text' id='txt'><br>
+      <button type='button' onclick="show()">Submit</button>
+    </form>
+  </body>
+</html>
